@@ -4,7 +4,7 @@ A flutter container widget that scrolls during drag and drop operatin. If you ar
 
 ## Demo
 
-![](drag_scroll_container_demo.gif|width=100px)
+![](drag_scroll_container_demo.gif)
 
 
 ## Usage
