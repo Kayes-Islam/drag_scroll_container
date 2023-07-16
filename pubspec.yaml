@@ -1,6 +1,6 @@
 name: drag_scroll_container
-description: A new Flutter package project.
-version: 0.0.1
+description: A flutter container widget that scrolls during drag and drop operatin. If you are creating your own drag-drop container, this could be useful.
+version: 0.0.2
 homepage: https://github.com/Kayes-Islam/drag_scroll_container
 
 environment:
