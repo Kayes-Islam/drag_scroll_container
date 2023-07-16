@@ -6,14 +6,15 @@ class DragScrollContainer extends StatefulWidget {
   final double scrollRate;
   final Widget child;
 
-  DragScrollContainer({
+  const DragScrollContainer({
+    super.key, 
     required this.scrollController,
     required this.child,
     this.scrollRate = 100.0,
   });
 
   @override
-  _DragScrollContainerState createState() => _DragScrollContainerState();
+  State<DragScrollContainer> createState() => _DragScrollContainerState();
 }
 
 class _DragScrollContainerState extends State<DragScrollContainer> {
@@ -78,24 +79,24 @@ class _DragScrollContainerState extends State<DragScrollContainer> {
   void scrollUp() {
     widget.scrollController.animateTo(
       widget.scrollController.position.pixels - widget.scrollRate,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
     );
 
     if (isScrollingUp) {
-      Future.delayed(Duration(milliseconds: 200), scrollUp);
+      Future.delayed(const Duration(milliseconds: 200), scrollUp);
     }
   }
 
   void scrollDown() {
     widget.scrollController.animateTo(
       widget.scrollController.position.pixels + widget.scrollRate,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       curve: Curves.linear,
     );
 
     if (isScrollingDown) {
-      Future.delayed(Duration(milliseconds: 200), scrollDown);
+      Future.delayed(const Duration(milliseconds: 200), scrollDown);
     }
   }
 }
