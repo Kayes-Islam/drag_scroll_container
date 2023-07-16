@@ -30,10 +30,11 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          const Text("Group 1"),
           Expanded(
             flex: 1,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: DragScrollContainer(
                 scrollController: scrollController1,
                 child: ListView.builder(
@@ -44,10 +45,11 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
           ),
+          const Text("Group 2"),
           Expanded(
             flex: 1,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
               child: DragScrollContainer(
                 scrollController: scrollController2,
                 child: ListView.builder(
