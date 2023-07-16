@@ -2,10 +2,12 @@ import 'package:drag_scroll_container/drag_scroll_container.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,11 +24,13 @@ class MyHomePage extends StatelessWidget {
   final ScrollController scrollController1 = ScrollController();
   final ScrollController scrollController2 = ScrollController();
 
+  MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Drag Scroll Container Demo'),
+        title: const Text('Drag Scroll Container Demo'),
       ),
       body: Column(
         children: [
@@ -69,7 +73,7 @@ class MyHomePage extends StatelessWidget {
 class DraggableBlock extends StatelessWidget {
   final int index;
 
-  DraggableBlock({required this.index});
+  const DraggableBlock({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +93,7 @@ class DraggableBlock extends StatelessWidget {
         child: Center(
           child: Text(
             'Block $index',
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16,
             ),
