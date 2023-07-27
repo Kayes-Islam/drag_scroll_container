@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class DragScrollContainer extends StatefulWidget {
@@ -6,12 +5,17 @@ class DragScrollContainer extends StatefulWidget {
   final double scrollRate;
   final Widget child;
 
+
+  // Number pixels from the top or bottom edge when scroll starts
+  final int edgeScrollPixels;
+
   const DragScrollContainer({
-    super.key, 
+    Key? key, 
     required this.scrollController,
     required this.child,
     this.scrollRate = 100.0,
-  });
+    this.edgeScrollPixels = 50
+  }) : super(key: key);
 
   @override
   State<DragScrollContainer> createState() => _DragScrollContainerState();
@@ -35,9 +39,10 @@ class _DragScrollContainerState extends State<DragScrollContainer> {
     final containerPosition = containerBox.localToGlobal(Offset.zero);
     final containerSize = containerBox.size;
 
-    if (event.position.dy < containerPosition.dy && widget.scrollController.position.pixels > 0) {
+    
+    if ((event.position.dy - containerPosition.dy) <= widget.edgeScrollPixels && widget.scrollController.position.pixels > 0) {
       startScrollingUp();
-    } else if (event.position.dy > containerPosition.dy + containerSize.height &&
+    } else if ((containerPosition.dy + containerSize.height - event.position.dy) <= widget.edgeScrollPixels &&
         widget.scrollController.position.pixels < widget.scrollController.position.maxScrollExtent) {
       startScrollingDown();
     } else {
